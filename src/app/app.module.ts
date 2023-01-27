@@ -7,8 +7,19 @@ import { SearchComponent } from './components/search/search.component';
 import { TripComponent } from './components/trip/trip.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import {FormsModule} from "@angular/forms";
-import {HttpClientModule} from "@angular/common/http";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from "./app-routing.module";
+import {BuyTicketComponent} from "./components/buy-ticket/buy-ticket.component";
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {ToastrModule} from "ngx-toastr";
+import { ProfileComponent } from './components/profile/profile.component';
+
+import {AuthInterceptor} from "./interceptors/auth.interceptor";
+
+
 
 @NgModule({
   declarations: [
@@ -16,15 +27,27 @@ import {HttpClientModule} from "@angular/common/http";
     NaviComponent,
     SearchComponent,
     TripComponent,
-    FooterComponent
+    FooterComponent,
+    BuyTicketComponent,
+    LoginComponent,
+    RegisterComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass:"toast-bottom-right"
+    })
   ],
-  providers: [],
+  providers: [
+    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -8,11 +8,17 @@ import {Observable} from "rxjs";
 })
 export class TripService {
 
-  url = "http://localhost:8080/trip"
+  url = "http://localhost:8080/"
   constructor(private httpClient: HttpClient) {
   }
 
   getAllTrips():Observable<TripResponse[]>{
-    return this.httpClient.get<TripResponse[]>(this.url);
+    let newPath = this.url + "trip"
+    return this.httpClient.get<TripResponse[]>(newPath);
+  }
+
+  searchTrips(fromCityId:number,toCityId:number,departureDate:string):Observable<TripResponse[]>{
+    let newPath = this.url + "trip/"+ fromCityId + "/" + toCityId + "/" + departureDate
+    return this.httpClient.get<TripResponse[]>(newPath);
   }
 }

@@ -1,24 +1,22 @@
-<div class="container text-center">
-  <div class="row">
-    <div class="col">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
-    <div class="col">
-      <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-      </select>
-    </div>
+<div class="card" style="width: 25rem;">
+  <div class="card-header">
+    Featured
   </div>
-  <div class="row">
-    <div class="col">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <select (change)="selectFromCityHandler($event)" class="form-select" aria-label="Default select example">
+        <option selected>Origin</option>
+        <option *ngFor="let city of cities" value="{{city.cityId}}">{{city.cityName}}</option>
+      </select>
+
+    </li>
+    <li class="list-group-item">
+      <select (change)="selectToCityHandler($event)" class="form-select" aria-label="Default select example">
+      <option selected>Destination</option>
+      <option *ngFor="let city of cities" value="{{city.cityId}}">{{city.cityName}}</option>
+    </select>
+    </li>
+    <li class="list-group-item">
       <form class="row row-cols-sm-auto">
         <div class="col-12">
           <div class="input-group">
@@ -30,12 +28,21 @@
               ngbDatepicker
               #d="ngbDatepicker"
             />
-            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"></button>
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><i class="bi bi-calendar2-heart"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-calendar2-heart" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5ZM1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V3Zm2 .5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V4a.5.5 0 0 0-.5-.5H3Zm5 4.493c1.664-1.711 5.825 1.283 0 5.132-5.825-3.85-1.664-6.843 0-5.132Z"/>
+            </svg></i></button>
           </div>
         </div>
       </form>
-    </div>
-  </div>
+    </li>
+    <li class="list-group-item">
+      <button routerLink="/trips/{{selectedFromCity}}/{{selectedToCity}}/{{model.year}}-0{{model.month}}-{{model.day}}" type="button" class="btn btn-danger"><i class="bi bi-geo-alt"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-geo-alt" viewBox="0 0 16 16">
+        <path d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z"/>
+        <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+      </svg>Find Ticket</i></button>
+    </li>
+  </ul>
 </div>
+
 
 

@@ -1,0 +1,63 @@
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Register</h5></div>
+      <div class="card-body">
+        <form [formGroup]="userAddForm">
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <div class="form-group">
+              <input type="text"
+                     id="email"
+                     formControlName="email" class="form-control"
+                     placeholder="example@gmail.com"/>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password">Password</label>
+            <div class="form-group">
+              <input type="text"
+                     id="password"
+                     formControlName="password" class="form-control"
+                     placeholder="Password"/>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="matchingPassword">Password Match</label>
+            <div class="form-group">
+              <input type="text"
+                     id="matchingPassword"
+                     formControlName="matchingPassword" class="form-control"
+                     placeholder="matchingPassword"/>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="firstName">First Name</label>
+            <div class="form-group">
+              <input type="text"
+                     id="firstName"
+                     formControlName="firstName" class="form-control"
+                     placeholder="First Name"/>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="lastName">Last Name</label>
+            <div class="form-group">
+              <input type="text"
+                     id="lastName"
+                     formControlName="lastName" class="form-control"
+                     placeholder="Last Name"/>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-danger" (click)="register()">Register</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
