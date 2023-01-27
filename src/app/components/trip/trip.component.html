@@ -1,0 +1,8 @@
+<div class="card" *ngFor="let trip of trips">
+  <h5 class="card-header">{{trip.departureTime}}</h5>
+  <div class="card-body">
+    <h5 class="card-title">{{trip.routeResponse.fromCity.cityName}}-{{trip.routeResponse.toCity.cityName}}</h5>
+    <p class="card-text">{{trip.price}}</p>
+    <a href="#" class="btn btn-primary">Buy Ticket</a>
+  </div>
+</div>
