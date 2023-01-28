@@ -1,0 +1,16 @@
+<div class="row">
+  <div class="card">
+    <div class="card-header">
+      {{ticket.tripResponse.departureDate}}-{{ticket.tripResponse.departureTime}}
+    </div>
+    <div class="card-body">
+      <blockquote class="blockquote mb-0">
+        <footer >Seat Number: {{ticket.seatNumber}} <cite title="Source Title">Statue: {{ticket.statue}}</cite></footer>
+      </blockquote>
+    </div>
+    <button (click)="updatePostponeBuyTicket()"  class="btn btn-fill btn-danger" >PostPone</button>
+    <button (click)="updateCancelBuyTicket()"  class="btn btn-fill btn-danger" >Cancel</button>
+
+
+  </div>
+</div>

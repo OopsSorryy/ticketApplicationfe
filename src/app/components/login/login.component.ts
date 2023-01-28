@@ -32,6 +32,7 @@ export class LoginComponent implements OnInit{
       this.authService.login(loginModel).subscribe(response=>{
         this.toastrService.success("You have successfully logged in")
         localStorage.setItem("token",response.jwtToken)
+        localStorage.setItem("customerId",String(response.customerResponse.customerId));
         this.router.navigate(["trips"]);
       })
     }

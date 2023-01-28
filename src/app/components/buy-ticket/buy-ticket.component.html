@@ -1,1 +1,25 @@
-<p>buy-ticket works!</p>
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Register</h5></div>
+      <div class="card-body">
+        <form [formGroup]="buyTicketForm">
+          <div class="mb-3">
+            <label for="seatNumber">seatNumber</label>
+            <div class="form-group">
+              <input type="text"
+                     id="seatNumber"
+                     formControlName="seatNumber" class="form-control"
+                     placeholder="seatNumber"/>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-danger" (click)="buyTicket()">Buy Ticket</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

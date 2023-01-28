@@ -16,8 +16,10 @@ import { RegisterComponent } from './components/register/register.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {ToastrModule} from "ngx-toastr";
 import { ProfileComponent } from './components/profile/profile.component';
+import { BuyTicketDetailComponent } from './components/buy-ticket-detail/buy-ticket-detail.component';
 
-import {AuthInterceptor} from "./interceptors/auth.interceptor";
+
+// import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 
 
@@ -31,7 +33,8 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     BuyTicketComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    BuyTicketDetailComponent,
   ],
   imports: [
     BrowserModule,
@@ -46,7 +49,7 @@ import {AuthInterceptor} from "./interceptors/auth.interceptor";
     })
   ],
   providers: [
-    {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
+    // {provide:HTTP_INTERCEPTORS, useClass:AuthInterceptor, multi:true}
   ],
   bootstrap: [AppComponent]
 })

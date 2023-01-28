@@ -3,6 +3,6 @@
   <div class="card-body">
     <h5 class="card-title">{{trip.routeResponse.fromCity.cityName}}-{{trip.routeResponse.toCity.cityName}}</h5>
     <p class="card-text">{{trip.price}} TL</p>
-    <a routerLink="/buyTicket" class="btn btn-danger">Buy Ticket</a>
+    <a routerLink="/trips/{{trip.tripId}}/buyTicket" class="btn btn-danger">Buy Ticket</a>
   </div>
 </div>
