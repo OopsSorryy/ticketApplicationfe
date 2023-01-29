@@ -39,7 +39,7 @@ export class BuyTicketComponent implements OnInit{
 
       this.buyTicketService.buyTicket(buyTicketModel).subscribe(response=>{
         this.toastrService.success("I hope you have fun on your trip")
-
+        this.router.navigate(["profile/"+Number(localStorage.getItem("customerId"))])
       })
     }
   }

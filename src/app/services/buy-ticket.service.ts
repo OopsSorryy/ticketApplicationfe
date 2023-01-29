@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BuyTicketRequest} from "../models/buyTicketRequest";
 import {Observable} from "rxjs";
 import {BuyTicketResponse} from "../models/buyTicketResponse";
@@ -16,22 +16,42 @@ export class BuyTicketService {
   constructor(private httpClient:HttpClient) { }
 
   buyTicket(buyTicketRequest:BuyTicketRequest):Observable<BuyTicketResponse>{
-    return this.httpClient.post<BuyTicketResponse>(this.url,buyTicketRequest);
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.getItem('token')}`)
+    }
+    return this.httpClient.post<BuyTicketResponse>(this.url,buyTicketRequest,header);
   }
   getBuyTicketsByCustomerId(customerId:number){
-      return this.httpClient.get<BuyTicketResponse[]>(this.url+"/"+customerId);
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.getItem('token')}`)
+    }
+      return this.httpClient.get<BuyTicketResponse[]>(this.url+"/"+customerId,header);
   }
 
   getBuyTicketsByTicketId(ticketId:number){
-    return this.httpClient.get<BuyTicketResponse>(this.url+"/ticketId/"+ticketId);
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.getItem('token')}`)
+    }
+    return this.httpClient.get<BuyTicketResponse>(this.url+"/ticketId/"+ticketId,header);
   }
 
   updateBuyTicketPostponed(buyTicketId:number){
-    return this.httpClient.put<BuyTicketResponse>(this.updatePostponeUrl+buyTicketId,{});
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.getItem('token')}`)
+    }
+    return this.httpClient.put<BuyTicketResponse>(this.updatePostponeUrl+buyTicketId,{},header);
   }
 
   updateBuyTicketCancelled(buyTicketId:number){
-    return this.httpClient.put<BuyTicketResponse>(this.updateCancelUrl+buyTicketId,{});
+    const header = {
+      headers: new HttpHeaders()
+        .set('Authorization',  `Bearer ${localStorage.getItem('token')}`)
+    }
+    return this.httpClient.put<BuyTicketResponse>(this.updateCancelUrl+buyTicketId,{},header);
   }
 
 }

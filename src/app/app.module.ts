@@ -19,6 +19,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { BuyTicketDetailComponent } from './components/buy-ticket-detail/buy-ticket-detail.component';
 
 
+
 // import {AuthInterceptor} from "./interceptors/auth.interceptor";
 
 
